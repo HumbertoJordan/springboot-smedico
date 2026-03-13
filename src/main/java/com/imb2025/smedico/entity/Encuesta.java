@@ -31,24 +31,57 @@ public class Encuesta extends BaseEntity {
     @JoinColumn(name = "consulta_id", nullable = false)
     private Consulta consulta;
 
-    public Encuesta() {}
+    @Column(nullable = false)
+    private Double calificacion;
 
-    public Encuesta(Paciente paciente, Consulta consulta, int puntaje, String comentario) {
+    public Encuesta() {
+    }
+
+    public Encuesta(Paciente paciente, Consulta consulta, int puntaje, String comentario, Double calificacion) {
         this.paciente = paciente;
         this.consulta = consulta;
         this.puntaje = puntaje;
         this.comentario = comentario;
+        this.calificacion = calificacion;
     }
 
-    public String getComentario() { return comentario; }
-    public void setComentario(String comentario) { this.comentario = comentario; }
+    public String getComentario() {
+        return comentario;
+    }
 
-    public int getPuntaje() { return puntaje; }
-    public void setPuntaje(int puntaje) { this.puntaje = puntaje; }
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
 
-    public Paciente getPaciente() { return paciente; }
-    public void setPaciente(Paciente paciente) { this.paciente = paciente; }
+    public int getPuntaje() {
+        return puntaje;
+    }
 
-    public Consulta getConsulta() { return consulta; }
-    public void setConsulta(Consulta consulta) { this.consulta = consulta; }
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
+    public Double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(Double calificacion) {
+        this.calificacion =  calificacion;
+    }
 }

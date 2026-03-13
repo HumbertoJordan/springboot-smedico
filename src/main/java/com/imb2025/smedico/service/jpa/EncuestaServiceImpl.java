@@ -1,6 +1,7 @@
 package com.imb2025.smedico.service.jpa;
 
 import java.util.List;
+import java.util.function.IntConsumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +21,15 @@ public class EncuestaServiceImpl implements IEncuestaService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Encuesta> findAll() { return repo.findAll(); }
+    public List<Encuesta> findAll() {
+        return repo.findAll();
+    }
 
     @Override
     @Transactional(readOnly = true)
     public Encuesta findById(Long id) {
         return repo.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Encuesta no encontrada con id " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Encuesta no encontrada con id " + id));
     }
 
     @Override
@@ -48,7 +51,7 @@ public class EncuestaServiceImpl implements IEncuestaService {
     }
 
     @Override
-    public Encuesta update(Long id, Encuesta encuesta)  {
+    public Encuesta update(Long id, Encuesta encuesta) {
         if (repo.existsById(id)) {
             encuesta.setId(id);
             return repo.save(encuesta);
@@ -66,5 +69,28 @@ public class EncuestaServiceImpl implements IEncuestaService {
     @Override
     public long countByConsulta(Long consultaId) {
         return repo.countByConsulta_Id(consultaId);
+    }
+
+    @Override
+    public List<Encuesta> findByCalificacionGreaterThan(Double calificacion) {
+        return repo.findBycalificacionGreaterThan(calificacion);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Encuesta> findByCalificacionLessThanEqual(Double maximo) {
+        return repo.findByCalificacionLessThan(maximo);
+    }
+
+    @Override
+    public List<Encuesta> findByCalificacionLessThanEqual(int n) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByCalificacionLessThanEqual'");
+    }
+
+    @Override
+    public List<Encuesta> findByCalificacionGreaterThan(int n) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByCalificacionGreaterThan'");
     }
 }

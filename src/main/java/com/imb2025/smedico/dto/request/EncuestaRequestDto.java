@@ -1,5 +1,7 @@
 package com.imb2025.smedico.dto.request;
 
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -25,14 +27,19 @@ public class EncuestaRequestDto {
     @NotBlank(message = "El comentario es obligatorio")
     @Size(max = 500, message = "El comentario admite hasta 500 caracteres")
     private String comentario;
+    
+    @NotNull(message = "La calificacion es obli")
+    
+    private Double calificacion;
 
     public EncuestaRequestDto() {}
 
-    public EncuestaRequestDto(Long pacienteId, Long consultaId, Integer puntaje, String comentario) {
+    public EncuestaRequestDto(Long pacienteId, Long consultaId, Integer puntaje, String comentario, Double calificacion) {
         this.pacienteId = pacienteId;
         this.consultaId = consultaId;
         this.puntaje = puntaje;
         this.comentario = comentario;
+        this.calificacion = calificacion;
     }
 
     public Long getPacienteId() { return pacienteId; }
@@ -46,4 +53,9 @@ public class EncuestaRequestDto {
 
     public String getComentario() { return comentario; }
     public void setComentario(String comentario) { this.comentario = comentario; }
+
+    public Double getCalificacion() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCalificacion'");
+    }
 }

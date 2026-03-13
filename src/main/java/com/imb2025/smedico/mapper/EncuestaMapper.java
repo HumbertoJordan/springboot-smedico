@@ -33,6 +33,7 @@ public class EncuestaMapper {
         e.setConsulta(consulta);
         e.setPuntaje(dto.getPuntaje());
         e.setComentario(dto.getComentario());
+        e.setCalificacion(dto.getCalificacion());
         return e;
     }
 
@@ -45,7 +46,8 @@ public class EncuestaMapper {
         dto.setComentario(encuesta.getComentario());
         dto.setPuntaje(encuesta.getPuntaje());
         dto.setConsulta(encuesta.getConsulta());   
-        dto.setPaciente(encuesta.getPaciente());   
+        dto.setPaciente(encuesta.getPaciente());  
+        dto.setCalificacion(encuesta.getCalificacion()); 
         return dto;
     }
 }

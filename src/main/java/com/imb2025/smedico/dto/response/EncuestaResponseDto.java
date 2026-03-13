@@ -13,7 +13,11 @@ public class EncuestaResponseDto {
     
     private Consulta consulta;
     private Paciente paciente;
+    
+    
+    private Double calificacion;
 
+    
     public Long getId() {
         return id;
     }
@@ -49,5 +53,11 @@ public class EncuestaResponseDto {
     }
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+    public Double getCalificacion() {
+        return calificacion;
+    }
+    public void setCalificacion(Double calificacion) {
+        this.calificacion = calificacion;
     }
 }

@@ -1,7 +1,9 @@
 package com.imb2025.smedico.service;
 
+import java.util.Collection;
 import java.util.List;
 
+import com.imb2025.smedico.dto.response.EncuestaResponseDto;
 import com.imb2025.smedico.entity.Encuesta;
 
 public interface IEncuestaService {
@@ -17,4 +19,9 @@ public interface IEncuestaService {
     // TP07
     List<Encuesta> findByPuntajeGreaterThanEqual(int puntajeMin);
     long countByConsulta(Long consultaId);
+     List<Encuesta> findByCalificacionLessThanEqual(int n);
+     List<Encuesta> findByCalificacionGreaterThan(int n);
+     List<Encuesta> findByCalificacionGreaterThan(Double calificacion);
+     List<Encuesta> findByCalificacionLessThanEqual(Double maximo);
+     
 }
